@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Furniture Site</title>
+    <!-- fav icon -->
+    <link rel="icon" type="image/png" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRp9SYfF0UefdFaHtm45g5OJw2scZIPEOK_Rw&s">
+    <!-- bootstrap link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&family=Honk&family=Mukta:wght@200;300;400;500;600;700;800&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+        body{
+            font-family: "Edu VIC WA NT Beginner", cursive;
+            font-weight: 400;
+            font-style: italic;
+        }
+        h1{
+          font-family: "Oswald", sans-serif;
+            font-weight: 900;
+            font-style:italic;
+        }
+    </style>
+</head>
+<body>
+  <hr>
+              <!-- Header -->
+  <nav class="navbar navbar-expand-lg bg-light p-4 ">
+            <div class="container-fluid">
+              <img src="data:image/png;base64,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"  width="50px" alt="">
+              <a class="navbar-brand fw-bolder" href="#"><h1>WOOD LAND</h1></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" href="#">Customised </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" href="#">Offer</a>
+                    
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" href="#">Special</a>
+                  </li>
+                </ul>
+                <form class="d-flex" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+
+                    <div class="d-flex flex-sm-column text-center mt-4">
+                        <i class="fa-solid fa-store mx-4 fs-3"></i>
+                        <p>Store</p>
+                    </div>
+                    
+                    <div class="d-flex flex-sm-column text-center mt-4">
+                      <i class="fa-solid fa-heart  mx-4 fs-3"></i>
+                        <p>Whishlist</p>
+                    </div>
+
+                    <div class="d-flex flex-sm-column text-center mt-4">
+                      <i class="fa-solid fa-user mx-4 fs-3"></i>
+                        <p>Profile</p>
+                    </div>
+
+                    <div class="d-flex flex-sm-column text-center mt-4">
+                      <i class="fa-solid fa-cart-shopping mx-4 fs-3"></i>
+                        <p>Cart</p>
+                    </div>
+
+              </div>
+            </div>
+          </nav>
+
+<hr>
+          <!-- navbar -->
+          <nav class="navbar navbar-expand-lg bg-light p-4">
+            <div class="container-fluid">
+              
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            
+                  <li class="nav-item ms-4">
+                    <a class="nav-link ">Sofas</a>
+                  </li>
+                  <li class="nav-item ms-4">
+                    <a class="nav-link  ">Living</a>
+                  </li>
+                  <li class="nav-item ms-4">
+                    <a class="nav-link ">Bedroom</a>
+                  </li>
+                  <li class="nav-item ms-4">
+                    <a class="nav-link ">Dining</a>
+                  </li>
+                  <li class="nav-item ms-4">
+                    <a class="nav-link ">Storage</a>
+                  </li>
+                  <li class="nav-item ms-4">
+                    <a class="nav-link ">Study and Office</a>
+                  </li>
+                  <li class="nav-item ms-4">
+                    <a class="nav-link ">Lambs and Lights</a>
+                  </li>
+                  <li class="nav-item ms-4">
+                    <a class="nav-link ">Decore</a>
+                  </li>
+                  <li class="nav-item ms-4">
+                    <a class="nav-link ">Outdoor</a>
+                  </li>
+                  <li class="nav-item ms-4">
+                    <a class="nav-link ">Indoor</a>
+                  </li>
+                  <li class="nav-item ms-4">
+                    <a class="nav-link ">New Items</a>
+                  </li>
+                </ul>
+              
+              </div>
+            </div>
+          </nav>
+          <hr>
+<!-- carousel -->
+<div id="carouselExampleCaptions" class="carousel slide">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img width="100%" height="600px" src="https://cdn.pixabay.com/photo/2016/11/19/17/25/furniture-1840463_1280.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+       
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img width="100%" height="600px" src="https://cdn.pixabay.com/photo/2016/11/23/14/29/living-room-1853203_1280.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+      
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img width="100%" height="600px" src="https://cdn.pixabay.com/photo/2017/09/09/18/25/living-room-2732939_1280.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+       
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+    <!-- rounded images -->
+
+        <div class="row px-5 mx-5 mt-5">
+            <h1 class="text-center">Top Picks For You</h1>
+            <p class="text-center mb-4">Impressive Collection For Your Dream Home</p>
+            <div class="col-3 text-center">
+                <img src="https://th.bing.com/th?id=OIP.D1hjwCB1pnaq00NOatmlrAHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" width="150px" height="150px" class="rounded-circle" alt="">
+                <p class="mt-3 fw-bolder">Tv Units</p>
+            </div>
+            <div class="col-3 text-center">
+                <img src="data:image/jpeg;base64,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" width="150px" height="150px" class="rounded-circle" alt="">
+                <p class="mt-3 fw-bolder">Chair</p>
+            </div>
+            <div class="col-3 text-center">
+                <img src="https://th.bing.com/th?id=OIP.hg51huf3LAFQHc4Ij2eufAHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" width="150px" height="150px" class="rounded-circle" alt="">
+                <p class="mt-3 fw-bolder">Bed</p>
+            </div>
+            <div class="col-3 text-center">
+                <img src="https://th.bing.com/th?id=OIP.yj28t9MnnqqunWB3Un8VzAAAAA&w=250&h=250&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" width="150px" height="150px" class="rounded-circle" alt="">
+                <p class="mt-3 fw-bolder">Wooden Dining Table</p>
+            </div>
+            <div class="col-3 text-center">
+                <img src="https://th.bing.com/th?id=OIP.qEzvjMsFBkmPsohftNOE9wHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" width="150px" height="150px" class="rounded-circle" alt="">
+                <p class="mt-3 fw-bolder">Study Table</p>
+            </div>
+            <div class="col-3 text-center">
+                <img src="https://i.pinimg.com/originals/30/48/8c/30488c4d5eeee81c99a08f8719ac3fa4.jpg" width="150px" height="150px" class="rounded-circle" alt="">
+                <p class="mt-3 fw-bolder">Shoes Shelves</p>
+            </div>
+            <div class="col-3 text-center">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThLVvengrd-i0Fs0DYLsxPdIBfRHUXbK-zRw&s" width="150px" height="150px" class="rounded-circle" alt="">
+                <p class="mt-3 fw-bolder">Sofa</p>
+            </div>
+            <div class="col-3 text-center">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxJiuGXF4F4_BqGaSntqB2n96Sc8DFntrU1g&s" width="150px" height="150px" class="rounded-circle" alt="">
+                <p class="mt-3 fw-bolder"> Single Sofa</p>
+            </div>
+        
+        </div>
+
+        <!-- card -->
+        <section>
+           <div class="row m-5">
+                <h1 class="my-2"> Explore Essential Home Furniture</h1>
+                <p class="mb-4 ">Design Your Home Decor, Your Way</p>
+                <div class="col-3">
+                  <div class="card" style="width: 250px ; height: 300px; border: none;" >
+                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxv0UBJaAXnyOIKEXtbItd1G6ge-bYtj1yDA&s" height="170px" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title">4 Seater Sofa</h5>
+                        <h6>Price : 11000</h6>
+                        <div class="">
+                          <a href="#" class="btn btn-primary">Buy Now</a>
+                        </div>
+                      </div>
+                    </div>
+            </div>
+                <div class="col-3">
+                    <div class="card" style="width: 250px ; height: 300px; border: none;">
+                        <img src="https://i.pinimg.com/originals/98/e2/d3/98e2d3d13f0cd84cb39c92f5e9aa719e.png" height="170px" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Round Accent Sofa</h5>
+                          <h6>Price : 5000</h6>
+                          <div class="">
+                            <a href="#" class="btn btn-primary">Buy Now</a>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-3">
+                  <div class="card" style="width: 250px ; height: 300px; border: none;">
+                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxJiuGXF4F4_BqGaSntqB2n96Sc8DFntrU1g&s" height="170px" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title">Single Sofa</h5>
+                        <h6>Price : 5000</h6>
+                        <div class="">
+                          <a href="#" class="btn btn-primary">Buy Now</a>
+                        </div>
+                      </div>
+                    </div>
+              </div>
+              <div class="col-3">
+                <div class="card" style="width: 250px ; height: 300px; border: none;">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSjRLDo2pR-exZfQZIcxcwrTLEWZq5MZMlbg&s" height="170px" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Vanisa Sofa</h5>
+                      <h6>Price : 5000</h6>
+                      <div class="">
+                        <a href="#" class="btn btn-primary">Buy Now</a>
+                      </div>
+                    </div>
+                
+              </div>
+            </div>
+            <div class="row mt-4">
+              <div class="col-3">
+                <div class="card" style="width: 250px ; height: 300px; border: none;">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrUsxZdfa1zTZgOveQ7VrEVqPJQPE37-ldDQ&s" height="170px" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Frog Shaped Sofa</h5>
+                      <h6>Price : 9000</h6>
+                      <div class="">
+                        <a href="#" class="btn btn-primary">Buy Now</a>
+                      </div>
+                    </div>
+                  </div>
+          </div>
+              <div class="col-3">
+                  <div class="card" style="width: 250px ; height: 300px; border: none;">
+                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmddaSCXlaY6Kauw_8SpDkIXLSzLD3PtFTjw&s" height="170px" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title">Lazzy Sofa</h5>
+                        <h6>Price : 15000</h6>
+                        <div class="">
+                          <a href="#" class="btn btn-primary">Buy Now</a>
+                        </div>
+                      </div>
+                    </div>
+              </div>
+              <div class="col-3">
+                <div class="card" style="width: 250px ; height: 300px; border: none;">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNABKXG9He6sJ7ymS8XEDZ6afduaaccr_x7A&s" height="170px" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Chair Sofa</h5>
+                      <h6>Price : 10000</h6>
+                      <div class="">
+                        <a href="#" class="btn btn-primary">Buy Now</a>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-3">
+              <div class="card" style="width: 250px ; height: 300px; border: none;">
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSbH1zYw8_KhuarrDhs4IJ-4io1N_-smWMIg&s" height="170px" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Family Sofa</h5>
+                    <h6>Price : 5000</h6>
+                    <div class="">
+                      <a href="#" class="btn btn-primary">Buy Now</a>
+                    </div>
+                  </div>
+              
+            </div>
+          </div>
+            
+        </section>
+
+
+        <section>
+          
+          <div class="row m-4 ">
+            <h1 class="my-5 text-center">Visit Our Stores</h1>
+            <div class="col-3">
+              <div class="card" style="width: 250px ; height: 250px;">
+                  <img src="https://www.ulcdn.net/media/Collection/listings/Carousel_store_awareness-_Bangloe.png?1681723070" height="270px" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    
+                  
+                  </div>
+              </div>
+            </div>  
+          
+          <div class="col-3">
+            <div class="card" style="width: 250px ; height: 250px;">
+                <img src="https://www.ulcdn.net/media/Collection/listings/Carousel_store_awareness-Delhi___NCR.png?1681723096" height="270px" class="card-img-top" alt="...">
+                <div class="card-body">
+                 
+                  
+                </div>
+            </div>
+          </div>  
+          <div class="col-3">
+            <div class="card" style="width: 250px ; height: 250px;">
+                <img src="https://www.ulcdn.net/media/Collection/listings/Carousel_store_awareness-Hyderabad.png?1681723199" height="270px" class="card-img-top" alt="...">
+                <div class="card-body">
+                  
+                  
+                </div>
+            </div>
+          </div>  
+          <div class="col-3">
+            <div class="card" style="width: 250px ; height: 250px;">
+                <img src="https://www.ulcdn.net/media/Collection/listings/Carousel_store_awareness-Mumbai.png?1681723129" height="270px" class="card-img-top" alt="...">
+                <div class="card-body">
+                  
+                 
+                  
+                </div>
+            </div>
+          </div>  
+          <div class="row mt-5 ">
+          
+            <div class="col-3">
+              <div class="card" style="width: 250px ; height: 250px;">
+                  <img src="https://www.ulcdn.net/media/Collection/listings/Carousel_store_awareness-Chennai.png?1681723241" height="270px" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    
+                    
+                  </div>
+              </div>
+            </div>  
+          
+          <div class="col-3">
+            <div class="card" style="width: 250px ; height: 250px;">
+                <img src="https://www.ulcdn.net/media/Collection/listings/Carousel_store_awareness-Pune.png?1681723279" height="270px" class="card-img-top" alt="...">
+                <div class="card-body">
+                 
+                  
+                  
+                </div>
+            </div>
+          </div>  
+          <div class="col-3">
+            <div class="card" style="width: 250px ; height: 250px;">
+                <img src="https://www.ulcdn.net/media/Collection/listings/Carousel_-_Kolkata.png?1691731726" height="270px" class="card-img-top" alt="...">
+                <div class="card-body">
+                  
+                  
+                  
+                </div>
+            </div>
+          </div>  
+          <div class="col-3">
+            <div class="card" style="width: 250px ; height: 250px;">
+                <img src="https://www.ulcdn.net/media/Collection/listings/Carousel_store_awareness-Kochi.png?1681723465" height="270px" class="card-img-top" alt="...">
+                <div class="card-body">
+                  
+                  
+                  
+                </div>
+            </div>
+          </div>  
+          
+        </section>
+        <section style="text-align: center;">
+          <button type="button" class="btn btn-warning mt-4">Explore All Stores</button>
+        </section>
+
+        <section>
+
+          <div class="row m-5">
+            <h1 class="my-2 text-center" > Shop Best Sellers</h1>
+            <p class="mb-4 text-center"> Happy Customers</p>
+            <div class="col-3">
+              <div class="card" style="width: 18rem;">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSbH1zYw8_KhuarrDhs4IJ-4io1N_-smWMIg&s"  class="card-img-top"
+                height="300px" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Sofas</h5>
+                  
+                </div>
+              </div>
+            </div>  
+            <div class="col-3">
+              <div class="card" style="width: 18rem;">
+                <img src="https://th.bing.com/th?id=OIP.qEzvjMsFBkmPsohftNOE9wHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2"   class="card-img-top" height="300px" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Study Table</h5>
+                 
+                  <a href="https://www.nilkamalfurniture.com/products/nilkamal-olivia-6-seater-dining-set-with-bench-brown?variant=40515560144985&currency=INR&msclkid=9964fb547488190e33189dec853cfb34&utm_source=bing&utm_medium=cpc&utm_campaign=Nilkamal-Standard-Shopping-Aug-21&utm_term=4587368675058792&utm_content=Home%20%26%20Office%20Furniture"></a>
+                </div>
+              </div>
+            </div>  
+            <div class="col-3">
+              <div class="card" style="width: 18rem;">
+                <img src="https://www.nilkamalfurniture.com/cdn/shop/files/MPRIMENSSMT.jpg?v=1703244408&width=180" class="card-img-top" height="300px" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Nightstand </h5>
+                 
+                  <a href="https://www.nilkamalfurniture.com/products/nilkamal-prime-engineered-wood-nightstand-samoa-teak-mprimenssmt?variant=40557231439961&currency=INR&msclkid=f8ea8fba4ae41053418fe902bb5014f2&utm_source=bing&utm_medium=cpc&utm_campaign=Nilkamal-Standard-Shopping-Aug-21&utm_term=4587368675058792&utm_content=Home%20%26%20Office%20Furniture"></a>
+                </div>
+              </div>
+            </div>  
+            <div class="col-3">
+              <div class="card" style="width: 18rem;">
+                <img src="https://i.pinimg.com/originals/08/1e/15/081e15556740c7e31b17ef029d091874.jpg" class="card-img-top" height="300px" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Family Bed</h5>
+                  
+                  <a href="https://www.bing.com/shop/productpage?q=furniture&filters=scenario%3a%2217%22+gType%3a%2212%22+gId%3a%22185897419759%22+gIdHash%3a%220%22+gGlobalOfferIds%3a%22185897419759%22+AucContextGuid%3a%220%22+GroupEntityId%3a%22185897419759%22+NonSponsoredOffer%3a%22True%22&productpage=true&FORM=SHPPDP&browse=true"></a>
+                </div>
+              </div>
+            </div>  
+           
+        </section>
+<hr>
+<section class="text-center">
+<h4 class="text-center "> Sign up and get a chance to win the giveaway of the week.</h4>
+<div class="form-floating mb-3">
+  <input type="email" class="form-control  " id="floatingInput" placeholder="name@example.com" >
+  <label for="floatingInput  ">Email address</label>
+</div>
+
+<button type="button" class="btn btn-success mt-4 "><h4>Submit</h4></button>
+</section>
+<hr>
+<footer class="bg-dark text-white p-4">
+
+    <div class="row text-center  ">
+      <div class="col">
+        <h2 class="text-warning">Popular Brands</h2>
+        <h4>Mintwud, <br>Woodsworth, <br>CasaCraft, <br>Amberville, <br>Mudramark, <br>Bohemiana,</h4>
+        
+      </div>
+      <div class="col">
+        <h2 class="text-warning">Corporates</h2>
+        <h4>About Us<br>Corporate Governance  <br>Pepperfry in the News<br>Career</h4>    
+      </div>
+      <div class="col">
+        <h2 class="text-warning">Useful Links</h2>
+        <h4>Explore Gift Cards<br>Buy in Bulk  <br>Discover Our Brands<br>Check Out Bonhomie, Our Blog <br>Find a Store</h4>      
+      </div>
+      <div class="col">
+        <h2 class="text-warning">Need Help?</h2>
+        <h4>Help center<br>Contact Us<br>Ask Expert<br>Track Your Order<br>Policies</h4> 
+      </div>
+      
+
+    </div>
+
+  </div>
+<hr>
+<footer class="bg-dark text-white p-4">
+
+  <div class="row text-center  ">
+    <div class="col">
+      <h5 class="text-light">We Accept</h5>
+     <img src="https://ii1.pepperfry.com/assets/w23-pf-visa.jpg" width="90px" height="50px" alt="">
+     <img src="https://ii1.pepperfry.com/assets/w23-pf-master-card.jpg" width="90px" height="50px" alt="">
+     <img src="https://ii1.pepperfry.com/assets/w23-pf-maestro.jpg" width="90px" height="50px" alt="">
+     <img src="https://ii1.pepperfry.com/assets/w23-pf-american-express.jpg" width="90px" height="50px" alt="">
+     <img src="https://ii1.pepperfry.com/assets/w23-pf-rupay.jpg" width="90px" height="50px" alt="">
+     <img src="https://ii1.pepperfry.com/assets/w23-pf-dinners-club.jpg" width="90px" height="50px" alt="">
+     <img src="https://ii1.pepperfry.com/assets/w23-pf-wallet.jpg" width="90px" height="50px" alt="">
+     <img src="https://ii1.pepperfry.com/assets/w23-pf-net-banking.jpg" width="90px" height="50px" alt="">
+    </div>
+    
+  </div>
+  <hr>
+    <div class="row text-center  ">
+      <div class="col">
+        <h5 class="text-light">Like What You See? Follow us Here</h5>
+       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjkllAaLITJDTdTY575IzXot87Y7qV8cSz7A&s" width="40px" height="40px" alt="">
+       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiXN9xSEe8unzPBEQOeAKXd9Q55efGHGB9BA&s" width="40px" height="40px" alt="">
+       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlKpi_RdDk2IrykUvO5SZCB1Uo-nlEsr7C1w&s" width="40px" height="40px" alt="">
+       <img src="https://cdn.pixabay.com/photo/2016/11/19/03/08/youtube-1837872_640.png"width="40px" height="40px" alt="">
+      </div>
+    </div>  
+    <hr>
+    
+      <div class="row text-center">
+        <div class="col">
+          <p>Whitehat</p>
+            <p> Sitemap</p>
+              <p> Terms Of Use</p>
+                <p> Privacy Policy</p>
+                  <p> Your Data and Security</p>
+                    <p> Grievance Redressal</p>
+                    <p>© Copyright Pepperfry Limited</p>
+        </div>
+      </div>
+     
+  </footer>    
